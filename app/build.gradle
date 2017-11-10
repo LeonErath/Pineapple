@@ -7,13 +7,12 @@ repositories {
     maven { url "http://dl.bintray.com/meetic-android/maven" }
 }
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
-
+    compileSdkVersion 23
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "leon.pineapple"
-        minSdkVersion 19
-        targetSdkVersion 24
+        minSdkVersion 23
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -23,25 +22,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 buildscript {
-    repositories { jcenter() }
-    dependencies { classpath "io.realm:realm-gradle-plugin:1.0.1" }
+    repositories { jcenter()
+    }
+    dependencies {
+        classpath "io.realm:realm-gradle-plugin:3.3.1"
+
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    ext {
+        supportLibVersion = '23.4.0'
+    }
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.0'
-    compile 'com.android.support:cardview-v7:24.2.0'
-    compile 'com.android.support:design:24.2.0'
-    compile 'com.android.support:support-v4:24.2.0'
-    compile 'com.android.support:recyclerview-v7:24.2.0'
-    compile 'us.belka:androidtoggleswitch:1.1.1'
-    compile 'com.meetic.marypopup:marypopup:1.0.0'
-    compile 'jp.wasabeef:recyclerview-animators:2.2.3'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
-
-
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+    compile "com.android.support:palette-v7:${supportLibVersion}"
+    compile "com.android.support:customtabs:${supportLibVersion}"
+    compile "com.android.support:gridlayout-v7:${supportLibVersion}"
 }
