@@ -1,3 +1,4 @@
+![maintained? no!](https://img.shields.io/badge/maintained%3F-no!-red.svg?style=flat)
 # Pineapple - der ultimative Schulplaner!
 
  ![Alt Text](https://app.marienschule.de/img/header.png)
